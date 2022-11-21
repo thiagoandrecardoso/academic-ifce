@@ -2,6 +2,7 @@ package who.professor.academic.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,12 @@ public class StudentController {
     @PostMapping("/save")
     public String save(Student student) {
         studentService.saveStudent(student);
-        return "redirect:/student/list";
+        return "redirect:/students/list";
+    }
+
+    @GetMapping("/list")
+    public String list(ModelMap modelMap){
+        modelMap.addAttribute("students", studentService.findAllStudents());
+        return "/student/list";
     }
 }
