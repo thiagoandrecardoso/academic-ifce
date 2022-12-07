@@ -15,15 +15,15 @@ public class MyWebSecurityConfiguration {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer(){
         return (web) -> web.ignoring()
-                .antMatchers("/resources/**");
+                .antMatchers("/resources/**", "/webjars/**", "/css/**");
     }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-        http.authorizeHttpRequests()
-                .antMatchers("/students/register/**")
-                .hasAnyAuthority("ADMIN")
-                .anyRequest().authenticated().and().formLogin();
+        http.authorizeHttpRequests((requests) ->
+                requests.antMatchers("/students/register").hasRole("ADMIN")
+                        .antMatchers("/", "home").permitAll().anyRequest().authenticated().and()
+        ).formLogin().and().exceptionHandling().accessDeniedPage("/403");
         return http.build();
     }
 
