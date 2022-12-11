@@ -24,4 +24,7 @@ public class Student {
 
     private Long rating;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
+
 }

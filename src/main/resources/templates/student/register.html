@@ -80,6 +80,25 @@
             <input type="password" class="form-control" id="password"
                    placeholder="Student Password" autofocus="autofocus" name="password" th:field="*{password}"/>
           </div>
+
+          <div class="form-group col-md-6">
+            <label for="logger">Logger</label>
+            <input type="text" class="form-control" id="logger"
+                   placeholder="Student Logger" autofocus="autofocus" name="logger" th:field="*{address.logger}"/>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="disdrict">Logger</label>
+            <input type="text" class="form-control" id="disdrict"
+                   placeholder="Student Disdrict" autofocus="autofocus" name="disdrict" th:field="*{address.disdrict}"/>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="zipCode">Logger</label>
+            <input type="text" class="form-control" id="zipCode"
+                   placeholder="Student Zip Code" autofocus="autofocus" name="zipCode" th:field="*{address.zipCode}"/>
+          </div>
+
         </div>
         <input type="hidden" id="id" name="id" value=""/>
         <button type="submit" class="btn btn-primary btn-sm">Save</button>
