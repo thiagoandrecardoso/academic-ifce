@@ -37,4 +37,12 @@ public class StudentService {
     public Student findStudentByEmail(String username){
         return studentRepository.findByEmail(username);
     }
+
+    public void delete(Student student){
+        studentRepository.delete(student);
+    }
+
+    public void edit(Student student){
+        studentRepository.save(student);
+    }
 }
