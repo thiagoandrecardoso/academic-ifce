@@ -21,7 +21,7 @@ public class MyWebSecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests((requests) ->
-                requests.antMatchers("/students/register").hasRole("ADMIN")
+                requests
                         .antMatchers("/", "home").permitAll().anyRequest().authenticated().and()
         ).formLogin().and().exceptionHandling().accessDeniedPage("/403");
         return http.build();
