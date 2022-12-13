@@ -25,12 +25,12 @@ public class AcademicApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        student = new Student();
-        student.setName("Thi");
-        student.setPassword(passwordEncoder.encode("123456"));
-        student.setEmail("thi@mail.com");
-        student.setStatus(true);
-        student.setRating(3L);
-        studentRepository.save(student);
+//        student = new Student();
+//        student.setName("Thi");
+//        student.setPassword(passwordEncoder.encode("123456"));
+//        student.setEmail("thi@mail.com");
+//        student.setStatus(true);
+//        student.setRating(3L);
+//        studentRepository.save(student);
     }
 }
