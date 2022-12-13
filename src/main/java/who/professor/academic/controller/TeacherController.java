@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import who.professor.academic.model.Student;
 import who.professor.academic.model.Teacher;
 import who.professor.academic.service.TeacherService;
 
@@ -41,7 +40,7 @@ public class TeacherController {
         Teacher teacher = teacherService.findById(id);
         if(teacher != null)
             teacherService.delete(teacher);
-        return "/student/list";
+        return "redirect:/teachers/list";
     }
 
     @GetMapping("/edit/{id}")

@@ -38,7 +38,7 @@ public class StudentController {
         Student student = studentService.findById(id);
         if(student != null)
             studentService.delete(student);
-        return "/student/list";
+        return "redirect:/teachers/list";
     }
 
     @GetMapping("/edit/{id}")
