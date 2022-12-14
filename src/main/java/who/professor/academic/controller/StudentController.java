@@ -28,28 +28,28 @@ public class StudentController {
     }
 
     @GetMapping("/list")
-    public String list(ModelMap modelMap){
+    public String list(ModelMap modelMap) {
         modelMap.addAttribute("students", studentService.findAllStudents());
         return "/student/list";
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable("id") Long id){
+    public String delete(@PathVariable("id") Long id) {
         Student student = studentService.findById(id);
-        if(student != null)
+        if (student != null)
             studentService.delete(student);
         return "redirect:/teachers/list";
     }
 
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable("id") Long id, ModelMap modelMap){
+    public String edit(@PathVariable("id") Long id, ModelMap modelMap) {
         Student student = studentService.findById(id);
         modelMap.addAttribute("student", student);
         return "student/register";
     }
 
     @PostMapping("/edit")
-    public String editStudent(Student student){
+    public String editStudent(Student student) {
         studentService.edit(student);
         return "redirect:/students/list";
     }

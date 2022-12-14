@@ -14,8 +14,6 @@ import who.professor.academic.service.TeacherService;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 @Controller
@@ -54,28 +52,28 @@ public class TeacherController {
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable("id") Long id){
+    public String delete(@PathVariable("id") Long id) {
         Teacher teacher = teacherService.findById(id);
-        if(teacher != null)
+        if (teacher != null)
             teacherService.delete(teacher);
         return "redirect:/teachers/list";
     }
 
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable("id") Long id, ModelMap modelMap){
+    public String edit(@PathVariable("id") Long id, ModelMap modelMap) {
         Teacher teacher = teacherService.findById(id);
         modelMap.addAttribute("teacher", teacher);
         return "teacher/register";
     }
 
     @PostMapping("/edit")
-    public String editTeacher(Teacher teacher){
+    public String editTeacher(Teacher teacher) {
         teacherService.edit(teacher);
         return "redirect:/teachers/list";
     }
 
-    public List<Long> getCodByString(String codDisciplines){
-        if(codDisciplines == null || codDisciplines.isEmpty())
+    public List<Long> getCodByString(String codDisciplines) {
+        if (codDisciplines == null || codDisciplines.isEmpty())
             return null;
 
         List<Long> cods = new ArrayList<Long>();

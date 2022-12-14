@@ -15,6 +15,7 @@ public class Teacher {
     public Teacher() {
         this.disciplines = new ArrayList<>();
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

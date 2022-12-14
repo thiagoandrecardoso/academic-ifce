@@ -26,23 +26,23 @@ public class StudentService {
     }
 
     @Transactional
-    public Student findById(Long id){
+    public Student findById(Long id) {
         return studentRepository.findById(id).get();
     }
 
-    public List<Student> findAllStudents(){
+    public List<Student> findAllStudents() {
         return studentRepository.findAll();
     }
 
-    public Student findStudentByEmail(String username){
+    public Student findStudentByEmail(String username) {
         return studentRepository.findByEmail(username);
     }
 
-    public void delete(Student student){
+    public void delete(Student student) {
         studentRepository.delete(student);
     }
 
-    public void edit(Student student){
+    public void edit(Student student) {
         studentRepository.save(student);
     }
 }

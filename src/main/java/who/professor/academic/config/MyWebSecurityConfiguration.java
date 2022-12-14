@@ -13,13 +13,13 @@ import org.springframework.security.web.SecurityFilterChain;
 public class MyWebSecurityConfiguration {
 
     @Bean
-    public WebSecurityCustomizer webSecurityCustomizer(){
+    public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring()
                 .antMatchers("/resources/**", "/webjars/**", "/css/**");
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((requests) ->
                 requests
                         .antMatchers("/", "home").permitAll().anyRequest().authenticated().and()
@@ -29,7 +29,7 @@ public class MyWebSecurityConfiguration {
 
     @Bean
     MyUserDetails customUserDetailsService() {
-        return new MyUserDetails() ;
+        return new MyUserDetails();
     }
 
     @Bean
