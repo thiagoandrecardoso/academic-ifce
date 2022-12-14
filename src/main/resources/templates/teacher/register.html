@@ -69,8 +69,14 @@
             <input type="text" class="form-control" id="name"
                    placeholder="teacher name" autofocus="autofocus" name="name" th:field="*{name}"/>
 
+            <label for="name">Disciplines Cods:</label>
+            <input type="text" class="form-control" id="codDisciplines"
+                   placeholder="exe: 1,10,12" autofocus="autofocus" name="codDisciplines" th:field="*{codDisciplines}"/>
+
           </div>
+
         </div>
+
         <input type="hidden" id="id" name="id" value=""/>
         <button type="submit" class="btn btn-primary btn-sm">Save</button>
       </form>
